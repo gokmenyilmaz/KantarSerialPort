@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfSeriaPort.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfSeriaPort"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="443.415" Width="800">
+    <Grid>
+        <Button Name="btnGonder" Content="Mesaj Gönder" HorizontalAlignment="Left" Height="30" Margin="660,10,0,0" VerticalAlignment="Top" Width="102" Click="Button_Click"/>
+        <TextBox Name="txtGidenMesaj" HorizontalAlignment="Left" Height="30" Margin="208,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="447"/>
+
+        <TextBox Text="100" FontSize="20" Name="txtGelenMesaj" Margin="208,55,31.6,288.6" />
+        <Button Name="btnBaglan" Content="Baglan" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top" Width="93" Height="30" Click="BtnBaglan_Click"/>
+        <TextBox FontSize="16" Text="COM1" Name="txtPort" HorizontalAlignment="Left" Height="30" Margin="126,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="77"/>
+
+        <Button FontSize="14" Name="btnKantardanAl" Content="Pandap  Kantardan Değer al" HorizontalAlignment="Left" Height="85" Margin="28,283,0,0" VerticalAlignment="Top" Width="175" Click="BtnKantardanAl_Click"/>
+        <TextBox FontSize="30" Name="txtKantarPandap" HorizontalAlignment="Left" Height="85" Margin="208,283,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="554"/>
+
+    </Grid>
+</Window>
