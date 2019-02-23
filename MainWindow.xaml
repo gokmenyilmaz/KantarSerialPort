@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfSeriaPort"
         mc:Ignorable="d"
-        Title="MainWindow" Height="363.385" Width="663.731">
+        Title="MainWindow" Height="363.385" Width="520.15">
     <Grid>
-        <Button Name="btnGonder" Content="Mesaj Gönder" HorizontalAlignment="Left" Height="30" Margin="522,56,0,0" VerticalAlignment="Top" Width="102" Click="Button_Click"/>
-        <TextBox Name="txtGidenMesaj" HorizontalAlignment="Left" Height="30" Margin="28,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="489"/>
+        <Button Name="btnGonder" Content="Mesaj Gönder" HorizontalAlignment="Left" Height="30" Margin="392,56,0,0" VerticalAlignment="Top" Width="102" Click="Button_Click"/>
+        <TextBox Name="txtGidenMesaj" HorizontalAlignment="Left" Height="30" Margin="28,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="359"/>
 
-        <TextBox Text="100" FontSize="20" Name="txtGelenMesaj" Margin="28,91,33.6,188.6" />
+        <TextBox Text="100" FontSize="20" Name="txtGelenMesaj" Margin="28,91,19.6,188.6" />
         <Button Name="btnBaglan" Content="Baglan" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top" Width="93" Height="30" Click="BtnBaglan_Click"/>
         <TextBox FontSize="16" Text="COM1" Name="txtPort" HorizontalAlignment="Left" Height="30" Margin="126,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="77"/>
 
         <Button FontSize="14" Name="btnKantardanAl" Content="Pandap  Kantardan Değer al" HorizontalAlignment="Left" Height="56" Margin="28,257,0,0" VerticalAlignment="Top" Width="175" Click="BtnKantardanAl_Click"/>
-        <TextBox FontSize="30" Name="txtKantarPandap" HorizontalAlignment="Left" Height="56" Margin="208,257,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="416"/>
+        <TextBox FontSize="30" Name="txtKantarPandap" HorizontalAlignment="Left" Height="56" Margin="208,257,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="286"/>
 
     </Grid>
 </Window>
