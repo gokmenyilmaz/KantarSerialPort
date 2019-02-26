@@ -69,9 +69,9 @@ namespace WpfSeriaPort
 
             string tonaj = string.Empty;
 
-            if (data.Length > 8)
+            if (data.Length > 7)
             {
-                for (int i = data.Length - 7; i < data.Length - 1; i++)
+                for (int i = data.Length - 8; i < data.Length - 1; i++)
                 {
                     tonaj += Convert.ToChar(data[i]).ToString();
                 }
