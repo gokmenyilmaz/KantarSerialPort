@@ -46,7 +46,9 @@ namespace WpfSeriaPort
 
             KantarSonucWindow w = new KantarSonucWindow(k);
 
-            var cev=  w.ShowDialog();
+            k.dinlemeyiBaslat();
+
+            var cev= w.ShowDialog();
 
             if(cev==true)
             {

@@ -11,7 +11,7 @@ namespace WpfSeriaPort
             InitializeComponent();
             kantar = kantarPort;
          
-            kantar.dinle();
+           
             kantar.pandap_dataReceiveEvent += K_dataReceiveEvent;
 
         }
@@ -27,7 +27,6 @@ namespace WpfSeriaPort
         {
             Dispatcher.BeginInvoke(new Action(() =>
             {
-        
                 decimal dtonaj = decimal.Parse(data.ToString())/10;
                 int i_tonaj_sonuc = Convert.ToInt32(Math.Round(dtonaj, 0, MidpointRounding.AwayFromZero));
 

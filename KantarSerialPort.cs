@@ -36,23 +36,23 @@ namespace WpfSeriaPort
             try
             {
                 s_port.Open();
-                MessageBox.Show("Bağlandı");
+                //MessageBox.Show("Bağlandı");
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString(), "Error"); }
         }
 
         string tonaj = string.Empty;
 
-        public void dinle()
+        public void dinlemeyiBaslat()
         {
             s_port.DataReceived += sport_DataReceived;
-            MessageBox.Show("dinleme başladı");
+            //MessageBox.Show("dinleme başladı");
         }
 
         public void dinlemeyiDurdur()
         {
             s_port.DataReceived -= sport_DataReceived;
-            MessageBox.Show("dinleme bitti");
+            //MessageBox.Show("dinleme bitti");
         }
 
 
