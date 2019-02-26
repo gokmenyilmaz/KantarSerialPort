@@ -14,7 +14,7 @@ namespace WpfSeriaPort
     {
         public SerialPort s_port;
 
-        public event Action<int> dataReceiveEvent;
+        public event Action<string> pandap_dataReceiveEvent;
 
         public KantarSerialPort(String port, string baudrate, string parity, string databits, string stopbits)
         {
@@ -37,27 +37,64 @@ namespace WpfSeriaPort
             {
                 s_port.Open();
                 MessageBox.Show("Bağlandı");
-                s_port.DataReceived += new SerialDataReceivedEventHandler(sport_DataReceived);
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString(), "Error"); }
         }
 
+        string tonaj = string.Empty;
+
+        public void dinle()
+        {
+            s_port.DataReceived += sport_DataReceived;
+            MessageBox.Show("dinleme başladı");
+        }
+
+        public void dinlemeyiDurdur()
+        {
+            s_port.DataReceived -= sport_DataReceived;
+            MessageBox.Show("dinleme bitti");
+        }
+
+
+        string textTonaj = "";
+
         private void sport_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            Thread.Sleep(100);
+            Thread.Sleep(300);
 
-            var data = s_port.ReadExisting();
+            int bytes = s_port.BytesToRead;
+            byte[] data = new byte[bytes];
+            s_port.Read(data, 0, bytes);
 
-            data = data.PadLeft(7, '0');
 
-            var str_son7 = data.Substring(data.Length - 7);
-            var strRakamlar = SadeceRakamlariGetir(str_son7);
-            var dtonaj = decimal.Parse(strRakamlar)/10; 
+            string tonaj = string.Empty;
 
-            int i_tonaj_sonuc =Convert.ToInt32(Math.Round(dtonaj, 0, MidpointRounding.AwayFromZero));
+            if (data.Length > 8)
+            {
+                for (int i = data.Length - 7; i < data.Length - 1; i++)
+                {
+                    tonaj += Convert.ToChar(data[i]).ToString();
+                }
+            }
+            else
+            {
+                for (int i = 1; i < data.Length; i++)
+                {
+                    tonaj += Convert.ToChar(data[i]).ToString();
+                }
+            }
 
-            if (dataReceiveEvent!=null)
-                dataReceiveEvent(i_tonaj_sonuc);
+            tonaj = GET_KantarValue(tonaj);
+
+            if (tonaj.Trim() != textTonaj.Trim())
+            {
+                textTonaj = tonaj.Trim();
+            }
+
+
+            if (pandap_dataReceiveEvent != null)
+                pandap_dataReceiveEvent(textTonaj);
+
         }
 
         public void MesajGonder(string data)
@@ -74,7 +111,7 @@ namespace WpfSeriaPort
             }
         }
 
-        private string SadeceRakamlariGetir(string input)
+        private string GET_KantarValue(string input)
         {
             string str = input;
 
@@ -90,9 +127,7 @@ namespace WpfSeriaPort
                 convert.Append(match.Groups[0].ToString());
             }
 
-            var sonuc= convert.ToString().TrimStart('0').Trim();
-
-            return sonuc;
+            return convert.ToString();
         }
 
 

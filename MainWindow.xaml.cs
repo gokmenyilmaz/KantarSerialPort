@@ -52,6 +52,8 @@ namespace WpfSeriaPort
             {
                 txtKantarPandap.Text = w.txtKantarSonuc.Text;
             }
+
+            k.dinlemeyiDurdur();
            
         }
        
